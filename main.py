@@ -14,49 +14,29 @@ r raiz quadrada
 ''')
 
     if operation == '**':
-        print("base e expoente:")
-        base = int(input("Base: "))
-        expoente = int(input("Expoente: "))
-        potencia = 1
-        for count in range(expoente):
-            potencia *= base
-            count += 1
-
-        print(base, "^", expoente, "=", potencia)
+        potencia()
 
     if operation == 'r':
-        num = float(input("Inserir um numero:\n"))
-        raiz = math.sqrt(num)
-        print(f'\nA raiz quadrada de {num} é {raiz}\n')
+        raiz()
 
     if operation == '%':
-        print("percentagem de valor:")
-        perc = float(input('Percentagem: '))
-        value = float(input('Valor: '))
-        result = (value * perc)/100
-        print(f'{perc} % de {value} é = {result}')
-
+        percentagem()
 
     if operation == '+' or operation == '-' or operation == '*' or operation == '/':
         number1 = float(input('Inserir o primeiro numero: '))
         number2 = float(input('Inserir o segundo numero: '))
 
         if operation == '+':
-            print('{} + {} = '.format(number1, number2))
-            print(number1 + number2)
+            soma(number1,number2)
 
         elif operation == '-':
-            print('{} - {} = '.format(number1, number2))
-            print(number1 - number2)
+            sub(number1,number2)
 
         elif operation == '*':
-            print('{} * {} = '.format(number1, number2))
-            print(number1 * number2)
+            mult(number1,number2)
 
         elif operation == '/':
-            print('{} / {} = '.format(number1, number2))
-            print(number1 / number2)
-
+            div(number1,number2)
 
         else:
             print('Mete o sinal primeiro.')
@@ -76,5 +56,55 @@ S para sim e N para nao.
         print('Cya.')
     else:
         again()
+
+
+def potencia():
+    print("base e expoente:")
+    base = int(input("Base: "))
+    expo = int(input("Expoente: "))
+    potenciaResult = 1
+    for count in range(expo):
+        potenciaResult *= base
+        count += 1
+
+    print(base, "^", expo, "=", potenciaResult)
+
+
+def raiz():
+    num = float(input("Inserir um numero:\n"))
+    if num > 0:
+        raiz = math.sqrt(num)
+        print(f'\nA raiz quadrada de {num} é {raiz}\n')
+    else:
+        print('Nao pode ter numeros negativos')
+
+
+def percentagem():
+    print("percentagem de valor:")
+    perc = float(input('Percentagem: '))
+    value = float(input('Valor: '))
+    result = (value * perc) / 100
+    print(f'{perc} % de {value} é = {result}')
+
+
+def soma(x, y):
+    print('{} + {} = '.format(x, y))
+    print(x + y)
+
+
+def sub(x, y):
+    print('{} - {} = '.format(x, y))
+    print(x - y)
+
+
+def mult(x, y):
+    print('{} * {} = '.format(x, y))
+    print(x * y)
+
+
+def div(x, y):
+    print('{} / {} = '.format(x, y))
+    print(x / y)
+
 
 calculate()
